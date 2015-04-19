@@ -1,4 +1,4 @@
-package fr.entrecode.old;
+package fr.entrecode.older;
 
 import android.app.Activity;
 import android.os.Bundle;

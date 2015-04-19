@@ -61,8 +61,7 @@
                     android:contentDescription="@string/description_cadre"
                     android:layout_centerHorizontal="true"
                     android:layout_centerVertical="true"
-                    android:src="@drawable/fond"
-                    android:id="@+id/" />
+                    android:src="@drawable/fond"/>
 
             </RelativeLayout>
 

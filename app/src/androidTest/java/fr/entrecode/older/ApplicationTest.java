@@ -1,4 +1,4 @@
-package fr.entrecode.old;
+package fr.entrecode.older;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;
