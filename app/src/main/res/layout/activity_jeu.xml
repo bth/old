@@ -46,7 +46,7 @@
                 android:layout_weight="0.85">
 
                 <ImageView
-                    android:id="@+id/photo"
+                    android:id="@+id/photoA"
                     android:layout_width="180dp"
                     android:layout_height="180dp"
                     android:contentDescription="@string/description_cadre"
@@ -61,7 +61,8 @@
                     android:contentDescription="@string/description_cadre"
                     android:layout_centerHorizontal="true"
                     android:layout_centerVertical="true"
-                    android:src="@drawable/fond" />
+                    android:src="@drawable/fond"
+                    android:id="@+id/" />
 
             </RelativeLayout>
 
@@ -100,7 +101,7 @@
                 android:layout_weight="0.85">
 
                 <ImageView
-                    android:id="@+id/photo"
+                    android:id="@+id/photoB"
                     android:layout_width="180dp"
                     android:layout_height="180dp"
                     android:contentDescription="@string/description_cadre"
