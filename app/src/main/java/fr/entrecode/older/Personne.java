@@ -9,10 +9,20 @@ import java.util.GregorianCalendar;
  */
 public class Personne {
 
+    private String id;
     private String dateNaissance;
     private String Nom;
 
-    public Personne(String nom, String dateNaissance) {
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public Personne(String id, String nom, String dateNaissance) {
+        setId(id);
         setNom(nom);
         setDateNaissance(dateNaissance);
     }
@@ -34,22 +44,28 @@ public class Personne {
     }
 
     public int getAge() {
-        String[] parties = getDateNaissance().split("/");
         int age = 0;
-        if (parties.length == 3) {
-            Calendar naissance = new GregorianCalendar();
-            Calendar aujourdhui = new GregorianCalendar();
-            naissance.set(Integer.parseInt(parties[2]), Integer.parseInt(parties[1])-1, Integer.parseInt(parties[0]));
+        Calendar naissance = getCalendar();
+        Calendar aujourdhui = new GregorianCalendar();
 
-            int anneeDifference = aujourdhui.get(Calendar.YEAR) - naissance.get(Calendar.YEAR);
-            naissance.set(Calendar.YEAR, aujourdhui.get(Calendar.YEAR));
-            if (!naissance.after(aujourdhui)) {
-                age = anneeDifference;
-            }
-            else {
-                age = anneeDifference - 1;
-            }
+        int anneeDifference = aujourdhui.get(Calendar.YEAR) - naissance.get(Calendar.YEAR);
+        naissance.set(Calendar.YEAR, aujourdhui.get(Calendar.YEAR));
+        if (!naissance.after(aujourdhui)) {
+            age = anneeDifference;
+        }
+        else {
+            age = anneeDifference - 1;
         }
         return age;
     }
+
+    public Calendar getCalendar() {
+        Calendar naissance = new GregorianCalendar();
+        String[] parties = getDateNaissance().split("/");
+        if (parties.length == 3) {
+            naissance.set(Integer.parseInt(parties[2]), Integer.parseInt(parties[1])-1, Integer.parseInt(parties[0]));
+        }
+        return naissance;
+    }
+
 }
