@@ -4,10 +4,15 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by ben on 19/04/15.
  */
 public class JeuActivity extends Activity {
+
+    private List<Personne> listePersonnes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,7 +23,9 @@ public class JeuActivity extends Activity {
 
     private void init() {
 
-        // Initialisation de la liste des Personnes
+        // Initialisation de la liste des personnes
+        listePersonnes = new ArrayList<>();
+
         Personne p1 = new Personne("a", "Daniel Radcliffe", "23/07/1989");
         Log.d("debug", String.valueOf(p1.getAge()));
 

@@ -61,7 +61,7 @@
                     android:contentDescription="@string/description_cadre"
                     android:layout_centerHorizontal="true"
                     android:layout_centerVertical="true"
-                    android:src="@drawable/fond"/>
+                    android:src="@drawable/cadre"/>
 
             </RelativeLayout>
 
@@ -115,7 +115,7 @@
                     android:contentDescription="@string/description_cadre"
                     android:layout_centerHorizontal="true"
                     android:layout_centerVertical="true"
-                    android:src="@drawable/fond" />
+                    android:src="@drawable/cadre" />
 
             </RelativeLayout>
 
