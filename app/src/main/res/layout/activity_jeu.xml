@@ -194,8 +194,17 @@
         android:layout_gravity="center_horizontal"
         android:orientation="horizontal"
         android:textColor="#ffffff"
-            android:layout_weight="0"
-            android:gravity="center_vertical|center_horizontal">
+        android:layout_weight="0"
+        android:gravity="center_vertical|center_horizontal">
+
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:contentDescription="@string/description_cadre"
+            android:scaleType="fitCenter"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/timer" />
 
         <TextView
             android:id="@+id/timer"
@@ -228,10 +237,19 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:text=" / "
+            android:text="   "
             android:textColor="#ffffff"
             android:textSize="30dp"
             android:gravity="center_vertical|center_horizontal" />
+
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:contentDescription="@string/description_cadre"
+            android:scaleType="fitCenter"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/best" />
 
         <TextView
             android:id="@+id/meilleur_score"
