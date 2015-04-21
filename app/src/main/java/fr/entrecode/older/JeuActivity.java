@@ -51,11 +51,18 @@ public class JeuActivity extends Activity {
         TextView nomA = (TextView)findViewById(R.id.nomA);
         nomA.setText(personneA.getNom());
 
+        TextView ageA = (TextView)findViewById(R.id.ageA);
+        ageA.setText(String.valueOf(personneA.getAge()));
+
+
         // Affichage de la Personne B
         ImageView photoB = (ImageView)findViewById(R.id.photoB);
         photoB.setImageDrawable(r.getDrawable(r.getIdentifier(personneB.getId(), "drawable", "fr.entrecode.older")));
 
         TextView nomB = (TextView)findViewById(R.id.nomB);
         nomB.setText(personneB.getNom());
+
+        TextView ageB = (TextView)findViewById(R.id.ageB);
+        ageB.setText(String.valueOf(personneB.getAge()));
     }
 }
