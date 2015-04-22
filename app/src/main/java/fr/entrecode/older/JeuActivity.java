@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -64,5 +65,13 @@ public class JeuActivity extends Activity {
 
         TextView ageB = (TextView)findViewById(R.id.ageB);
         ageB.setText(String.valueOf(personneB.getAge()));
+    }
+
+    public void choisirA(View view) {
+        Log.d("debug", "Réponse A");
+    }
+
+    public void choisirB(View view) {
+        Log.d("debug", "Réponse B");
     }
 }
