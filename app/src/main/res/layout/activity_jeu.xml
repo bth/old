@@ -80,7 +80,7 @@
                     android:layout_height="fill_parent"
                     android:layout_gravity="center"
                     android:text="xxxxxxxxxx xxxxx"
-                    android:textColor="#ffffff"
+                    style="@style/TexteOmbre"
                     android:textSize="20dp"
                     />
 
@@ -162,7 +162,7 @@
                         android:layout_height="fill_parent"
                         android:layout_gravity="center"
                         android:text="xxxxxxxxxx xxxxx"
-                        android:textColor="#ffffff"
+                        style="@style/TexteOmbre"
                         android:textSize="20dp" />
 
                 </LinearLayout>
