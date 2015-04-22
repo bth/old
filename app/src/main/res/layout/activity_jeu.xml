@@ -97,7 +97,7 @@
                     android:layout_height="fill_parent"
                     android:layout_gravity="center"
                     android:text="\?\?"
-                    android:textColor="#ffffff"
+                    style="@style/TexteOmbre"
                     android:textSize="30dp" />
 
             </LinearLayout>
@@ -178,7 +178,7 @@
                         android:layout_height="fill_parent"
                         android:layout_gravity="center"
                         android:text="\?\?"
-                        android:textColor="#ffffff"
+                        style="@style/TexteOmbre"
                         android:textSize="30dp" />
 
                 </LinearLayout>
