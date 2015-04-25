@@ -58,6 +58,7 @@ public class JeuActivity extends Activity {
 
         listePersonnes.add(new Personne("b", "Johnny Depp", "09/06/1963"));
 
+        chargerMeilleurScore();
         afficherQuestion();
 
         // Préparation du timer de réponse
@@ -104,7 +105,6 @@ public class JeuActivity extends Activity {
 
         TextView ageA = (TextView)findViewById(R.id.ageA);
         ageA.setText("??");
-
 
         // Affichage de la Personne B
         ImageView photoB = (ImageView)findViewById(R.id.photoB);
