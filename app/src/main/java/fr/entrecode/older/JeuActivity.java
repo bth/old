@@ -115,6 +115,8 @@ public class JeuActivity extends Activity {
 
         TextView ageB = (TextView)findViewById(R.id.ageB);
         ageB.setText("??");
+
+        reponseDonnee = Question.Reponse.REPONSE_INCONNUE;
     }
 
     private void afficherReponse() {
@@ -185,13 +187,17 @@ public class JeuActivity extends Activity {
     }
 
     public void choisirA(View view) {
-        reponseDonnee = Question.Reponse.REPONSE_A;
-        afficherReponse();
+        if (reponseDonnee == Question.Reponse.REPONSE_INCONNUE) {
+            reponseDonnee = Question.Reponse.REPONSE_A;
+            afficherReponse();
+        }
     }
 
     public void choisirB(View view) {
-        reponseDonnee = Question.Reponse.REPONSE_B;
-        afficherReponse();
+        if (reponseDonnee == Question.Reponse.REPONSE_INCONNUE) {
+            reponseDonnee = Question.Reponse.REPONSE_B;
+            afficherReponse();
+        }
     }
 
     class TimerReponse extends TimerTask {
