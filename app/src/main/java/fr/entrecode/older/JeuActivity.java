@@ -116,7 +116,15 @@ public class JeuActivity extends Activity {
         TextView ageB = (TextView)findViewById(R.id.ageB);
         ageB.setText("??");
 
+        initialiserCouleurs();
+
         reponseDonnee = Question.Reponse.REPONSE_INCONNUE;
+    }
+
+    private void initialiserCouleurs() {
+        coloriserReponseA(getResources().getColor(R.color.claireNormale));
+        coloriserReponseB(getResources().getColor(R.color.claireNormale));
+        coloriserTimer(getResources().getColor(R.color.claireNormale));
     }
 
     private void afficherReponse() {
@@ -233,7 +241,7 @@ public class JeuActivity extends Activity {
                     if (tempsAffichageQuestion <= 0) {
                         tempsAffichageQuestion = TEMPS_AFFICHAGE_QUESTION_MAX + 1;
                         etat = Etat.AFFICHER_REPONSE;
-                        /*coloriserTimer(Color.RED);*/
+                        coloriserTimer(getResources().getColor(R.color.mauvais));
                         resetScore();
                         afficherReponse();
                     }
