@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <item name="claireNormale" type="color">#fff0c4</item>
+    <item name="mauvais" type="color">#ffc4c4</item>
+    <item name="bon" type="color">#d1ffc4</item>
 </resources>

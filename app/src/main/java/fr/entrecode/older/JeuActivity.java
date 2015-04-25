@@ -136,8 +136,8 @@ public class JeuActivity extends Activity {
             scoreView.setText(String.valueOf(score));
         }
 
-        coloriserReponseA(Color.GREEN);
-        coloriserReponseB(Color.RED);
+        coloriserReponseA(getResources().getColor(R.color.mauvais));
+        coloriserReponseB(getResources().getColor(R.color.bon));
 
         mettreAJourMeilleurScore();
     }
