@@ -136,17 +136,26 @@ public class JeuActivity extends Activity {
             scoreView.setText(String.valueOf(score));
         }
 
+        coloriserReponseA(Color.GREEN);
+        coloriserReponseB(Color.RED);
+
         mettreAJourMeilleurScore();
     }
 
     private void coloriserReponseA(int couleur) {
-        TextView reponseA = (TextView)findViewById(R.id.ageA);
-        reponseA.setTextColor(couleur);
+        TextView nomA = (TextView)findViewById(R.id.nomA);
+        nomA.setTextColor(couleur);
+
+        TextView ageA = (TextView)findViewById(R.id.ageA);
+        ageA.setTextColor(couleur);
     }
 
     private void coloriserReponseB(int couleur) {
-        TextView reponseB = (TextView)findViewById(R.id.ageB);
-        reponseB.setTextColor(couleur);
+        TextView nomB = (TextView)findViewById(R.id.nomB);
+        nomB.setTextColor(couleur);
+
+        TextView ageB = (TextView)findViewById(R.id.ageB);
+        ageB.setTextColor(couleur);
     }
 
     private void coloriserTimer(int couleur) {
@@ -156,8 +165,8 @@ public class JeuActivity extends Activity {
 
     private void resetScore() {
         TextView score = (TextView)findViewById(R.id.score);
-        score.setText("0");
         this.score = 0;
+        score.setText(String.valueOf(this.score));
     }
 
     private void mettreAJourMeilleurScore() {
