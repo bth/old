@@ -31,12 +31,13 @@ public class JeuActivity extends Activity {
     private final int TEMPS_AFFICHAGE_REPONSE_MAX = 1;
 
     private List<Personne> listePersonnes;
-    private Boolean reponseDonnee = false;
+    private Question.Reponse reponseDonnee = Question.Reponse.REPONSE_INCONNUE;
     private Etat etat = Etat.AFFICHER_QUESTION;
     private int score = 0;
     private int meilleurScore = 0;
     private int tempsAffichageQuestion = TEMPS_AFFICHAGE_QUESTION_MAX;
     private int tempsAffichageReponse = TEMPS_AFFICHAGE_REPONSE_MAX;
+    private Question questionCourante;
 
     private Timer horloge = new Timer();
     final Handler handlerHorloge = new Handler();
@@ -71,20 +72,23 @@ public class JeuActivity extends Activity {
     }
 
     private void afficherQuestion() {
-        reponseDonnee = false;
+        reponseDonnee = Question.Reponse.REPONSE_INCONNUE;
         //coloriserTimer(Color.BLACK);
         Question question = choisirQuestion();
+        questionCourante = question;
         afficherQuestion(question);
     }
 
     private Question choisirQuestion() {
         int idA = 0;
         int idB = 0;
+        // Tirage au sort de la question
         do {
             idA = (int) Math.round(Math.random() * (listePersonnes.size() - 1));
             idB = (int) Math.round(Math.random() * (listePersonnes.size() - 1));
         }
         while (idA == idB);
+
         return new Question(listePersonnes.get(idA), listePersonnes.get(idB));
     }
 
@@ -99,7 +103,7 @@ public class JeuActivity extends Activity {
         nomA.setText(question.getPersonneA().getNom());
 
         TextView ageA = (TextView)findViewById(R.id.ageA);
-        ageA.setText(String.valueOf(question.getPersonneA().getAge()));
+        ageA.setText("??");
 
 
         // Affichage de la Personne B
@@ -110,10 +114,18 @@ public class JeuActivity extends Activity {
         nomB.setText(question.getPersonneB().getNom());
 
         TextView ageB = (TextView)findViewById(R.id.ageB);
-        ageB.setText(String.valueOf(question.getPersonneB().getAge()));
+        ageB.setText("??");
     }
 
     private void afficherReponse() {
+        Question question = questionCourante;
+
+        TextView ageA = (TextView)findViewById(R.id.ageA);
+        ageA.setText(String.valueOf(question.getPersonneA().getAge()));
+
+        TextView ageB = (TextView)findViewById(R.id.ageB);
+        ageB.setText(String.valueOf(question.getPersonneB().getAge()));
+
         mettreAJourMeilleurScore();
     }
 
@@ -165,11 +177,13 @@ public class JeuActivity extends Activity {
     }
 
     public void choisirA(View view) {
-        Log.d("debug", "Réponse A");
+        reponseDonnee = Question.Reponse.REPONSE_A;
+        afficherReponse();
     }
 
     public void choisirB(View view) {
-        Log.d("debug", "Réponse B");
+        reponseDonnee = Question.Reponse.REPONSE_B;
+        afficherReponse();
     }
 
     class TimerReponse extends TimerTask {

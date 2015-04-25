@@ -5,12 +5,25 @@ package fr.entrecode.older;
  */
 public class Question {
 
+    public enum Reponse {
+        REPONSE_INCONNUE,
+        REPONSE_A,
+        REPONSE_B
+    }
+
     private Personne personneA;
     private Personne personneB;
+    private Reponse bonneReponse = Reponse.REPONSE_INCONNUE;
 
     public Question(Personne personneA, Personne personneB) {
         setPersonneA(personneA);
         setPersonneB(personneB);
+        if (getPersonneA().estPlusVieuxQue(getPersonneB())) {
+            bonneReponse = Reponse.REPONSE_A;
+        }
+        else {
+            bonneReponse= Reponse.REPONSE_B;
+        }
     }
 
     public Personne getPersonneA() {
@@ -31,5 +44,14 @@ public class Question {
 
     public Personne getPlusVieux() {
         return personneA;
+    }
+
+    public boolean estLaBonneReponse(Reponse reponse) {
+        if (reponse == bonneReponse) {
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 }

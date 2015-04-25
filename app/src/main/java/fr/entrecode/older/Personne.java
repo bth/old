@@ -68,4 +68,13 @@ public class Personne {
         return naissance;
     }
 
+    public boolean estPlusVieuxQue(Personne autrePersonne) {
+        boolean estPlusVieux = false;
+        Calendar naissanceA = this.getCalendar();
+        Calendar naissanceB = autrePersonne.getCalendar();
+        if (naissanceA.after(naissanceB)) {
+            estPlusVieux = true;
+        }
+        return estPlusVieux;
+    }
 }
