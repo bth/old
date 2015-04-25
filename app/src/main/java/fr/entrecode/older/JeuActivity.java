@@ -144,8 +144,14 @@ public class JeuActivity extends Activity {
             scoreView.setText(String.valueOf(score));
         }
 
-        coloriserReponseA(getResources().getColor(R.color.mauvais));
-        coloriserReponseB(getResources().getColor(R.color.bon));
+        if (question.getBonneReponse() == Question.Reponse.REPONSE_A) {
+            coloriserReponseA(getResources().getColor(R.color.bon));
+            coloriserReponseB(getResources().getColor(R.color.mauvais));
+        }
+        else {
+            coloriserReponseA(getResources().getColor(R.color.mauvais));
+            coloriserReponseB(getResources().getColor(R.color.bon));
+        }
 
         mettreAJourMeilleurScore();
     }

@@ -54,4 +54,8 @@ public class Question {
             return false;
         }
     }
+
+    public Reponse getBonneReponse() {
+        return bonneReponse;
+    }
 }
