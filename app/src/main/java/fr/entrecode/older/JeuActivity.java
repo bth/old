@@ -120,11 +120,19 @@ public class JeuActivity extends Activity {
     private void afficherReponse() {
         Question question = questionCourante;
 
+        etat = Etat.AFFICHER_REPONSE;
+
         TextView ageA = (TextView)findViewById(R.id.ageA);
         ageA.setText(String.valueOf(question.getPersonneA().getAge()));
 
         TextView ageB = (TextView)findViewById(R.id.ageB);
         ageB.setText(String.valueOf(question.getPersonneB().getAge()));
+
+        if (question.estLaBonneReponse(reponseDonnee)) {
+            score++;
+            TextView scoreView = (TextView)findViewById(R.id.score);
+            scoreView.setText(String.valueOf(score));
+        }
 
         mettreAJourMeilleurScore();
     }

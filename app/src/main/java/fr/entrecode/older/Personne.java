@@ -72,7 +72,7 @@ public class Personne {
         boolean estPlusVieux = false;
         Calendar naissanceA = this.getCalendar();
         Calendar naissanceB = autrePersonne.getCalendar();
-        if (naissanceA.after(naissanceB)) {
+        if (naissanceA.before(naissanceB)) {
             estPlusVieux = true;
         }
         return estPlusVieux;
