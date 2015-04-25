@@ -27,8 +27,8 @@ public class JeuActivity extends Activity {
         AFFICHER_REPONSE
     }
 
-    private final int TEMPS_AFFICHAGE_QUESTION_MAX = 10;
-    private final int TEMPS_AFFICHAGE_REPONSE_MAX = 1;
+    private final int TEMPS_AFFICHAGE_QUESTION_MAX = 3;
+    private final int TEMPS_AFFICHAGE_REPONSE_MAX = 2;
 
     private List<Personne> listePersonnes;
     private Question.Reponse reponseDonnee = Question.Reponse.REPONSE_INCONNUE;
@@ -245,7 +245,7 @@ public class JeuActivity extends Activity {
                     }
 
                     if (tempsAffichageQuestion <= 0) {
-                        tempsAffichageQuestion = TEMPS_AFFICHAGE_QUESTION_MAX + 1;
+                        tempsAffichageQuestion = TEMPS_AFFICHAGE_QUESTION_MAX;
                         etat = Etat.AFFICHER_REPONSE;
                         coloriserTimer(getResources().getColor(R.color.mauvais));
                         resetScore();
@@ -253,8 +253,8 @@ public class JeuActivity extends Activity {
                     }
 
                     if (tempsAffichageReponse <= 0) {
-                            tempsAffichageReponse = TEMPS_AFFICHAGE_REPONSE_MAX + 1;
-                            tempsAffichageQuestion = TEMPS_AFFICHAGE_QUESTION_MAX + 1;
+                            tempsAffichageReponse = TEMPS_AFFICHAGE_REPONSE_MAX;
+                            tempsAffichageQuestion = TEMPS_AFFICHAGE_QUESTION_MAX;
                             setTempsReponse(tempsAffichageQuestion);
                             etat = Etat.AFFICHER_QUESTION;
                             afficherQuestion();
