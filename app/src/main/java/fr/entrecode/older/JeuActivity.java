@@ -55,9 +55,7 @@ public class JeuActivity extends Activity {
 
         listePersonnes.add(new Personne("a", "Daniel Radcliffe", "23/07/1989"));
 
-        listePersonnes.add(new Personne("a", "Daniel Radcliffe", "08/12/1988"));
-
-        listePersonnes.add(new Personne("a", "Daniel Radcliffe", "19/04/1988"));
+        listePersonnes.add(new Personne("b", "Johnny Depp", "09/06/1963"));
 
         afficherQuestion();
 
@@ -80,8 +78,14 @@ public class JeuActivity extends Activity {
     }
 
     private Question choisirQuestion() {
-        int id = (int) Math.round(Math.random()*(listePersonnes.size()-1));
-        return new Question(listePersonnes.get(id), listePersonnes.get(id));
+        int idA = 0;
+        int idB = 0;
+        do {
+            idA = (int) Math.round(Math.random() * (listePersonnes.size() - 1));
+            idB = (int) Math.round(Math.random() * (listePersonnes.size() - 1));
+        }
+        while (idA == idB);
+        return new Question(listePersonnes.get(idA), listePersonnes.get(idB));
     }
 
     private void afficherQuestion(Question question) {
@@ -194,7 +198,7 @@ public class JeuActivity extends Activity {
                         etat = Etat.AFFICHER_REPONSE;
                         /*coloriserTimer(Color.RED);*/
                         resetScore();
-                        /*afficherReponse();*/
+                        afficherReponse();
                     }
 
                     if (tempsAffichageReponse <= 0) {
