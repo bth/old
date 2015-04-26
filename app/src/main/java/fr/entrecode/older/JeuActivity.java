@@ -55,8 +55,17 @@ public class JeuActivity extends Activity {
         listePersonnes = new ArrayList<>();
 
         listePersonnes.add(new Personne("a", "Daniel Radcliffe", "23/07/1989"));
-
         listePersonnes.add(new Personne("b", "Johnny Depp", "09/06/1963"));
+        listePersonnes.add(new Personne("c", "Ellen DeGeneres", "26/01/1958"));
+        listePersonnes.add(new Personne("d", "Mark Harmon", "02/09/1951"));
+        listePersonnes.add(new Personne("e", "Jimmy Fallon", "19/09/1974"));
+        listePersonnes.add(new Personne("f", "Steve Harvey", "17/01/1957"));
+        listePersonnes.add(new Personne("g", "Jim Parsons", "24/03/1973"));
+        listePersonnes.add(new Personne("h", "Jon Stewart", "28/11/1962"));
+        listePersonnes.add(new Personne("i", "Stephen Colbert", "13/05/1964"));
+        listePersonnes.add(new Personne("j", "Tom Selleck", "29/01/1945"));
+        listePersonnes.add(new Personne("k", "Bill O'Reilly", "10/09/1949"));
+        listePersonnes.add(new Personne("l", "David Letterman", "12/04/1947"));
 
         chargerMeilleurScore();
         afficherQuestion();
