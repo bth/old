@@ -78,6 +78,18 @@ public class JeuActivity extends Activity {
         listePersonnes.add(new Personne("v", "Denzel Washington", "28/12/1954"));
         listePersonnes.add(new Personne("w", "Russell Crowe", "07/04/1964"));
         listePersonnes.add(new Personne("x", "Sean Penn", "17/08/1960"));
+        listePersonnes.add(new Personne("y", "Kate Winslet", "05/10/1975"));
+        listePersonnes.add(new Personne("z", "Cate Blanchett", "14/05/1969"));
+        listePersonnes.add(new Personne("aa", "Meryl Streep", "22/06/1949"));
+        listePersonnes.add(new Personne("ab", "Sophia Loren", "20/09/1934"));
+        listePersonnes.add(new Personne("ac", "Jodie Foster", "19/11/1962"));
+        listePersonnes.add(new Personne("ad", "Halle Berry", "14/08/1966"));
+        listePersonnes.add(new Personne("ae", "Diane Keaton", "05/01/1946"));
+        listePersonnes.add(new Personne("af", "Angelina Jolie", "04/06/1975"));
+        listePersonnes.add(new Personne("ag", "Sandra Bullock", "26/07/1964"));
+        listePersonnes.add(new Personne("ah", "Natalie Portman", "09/06/1981"));
+        listePersonnes.add(new Personne("ai", "Julia Roberts", "28/10/1967"));
+        listePersonnes.add(new Personne("aj", "Nicole Kidman", "20/06/1967"));
 
         chargerMeilleurScore();
         afficherQuestion();
