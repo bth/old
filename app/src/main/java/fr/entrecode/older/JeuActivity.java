@@ -90,6 +90,18 @@ public class JeuActivity extends Activity {
         listePersonnes.add(new Personne("ah", "Natalie Portman", "09/06/1981"));
         listePersonnes.add(new Personne("ai", "Julia Roberts", "28/10/1967"));
         listePersonnes.add(new Personne("aj", "Nicole Kidman", "20/06/1967"));
+        listePersonnes.add(new Personne("ak", "Mariah Carey", "27/03/1970"));
+        listePersonnes.add(new Personne("al", "Céline Dion", "30/03/1968"));
+        listePersonnes.add(new Personne("am", "Christina Aguilera", "18/12/1980"));
+        listePersonnes.add(new Personne("an", "Beyoncé Knowles", "04/09/1981"));
+        listePersonnes.add(new Personne("ao", "Adele", "05/05/1988"));
+        listePersonnes.add(new Personne("ap", "Amy Lee", "13/12/1981"));
+        listePersonnes.add(new Personne("aq", "Madonna", "16/08/1958"));
+        listePersonnes.add(new Personne("ar", "Katy Perry", "25/10/1984"));
+        listePersonnes.add(new Personne("as", "Lady Gaga", "28/03/1986"));
+        listePersonnes.add(new Personne("at", "Avril Lavigne", "27/09/1984"));
+        listePersonnes.add(new Personne("au", "Rihanna", "20/02/1988"));
+        listePersonnes.add(new Personne("av", "Pink", "08/09/1979"));
 
         chargerMeilleurScore();
         afficherQuestion();
