@@ -83,7 +83,6 @@ public class JeuActivity extends Activity {
 
     private void afficherQuestion() {
         reponseDonnee = Question.Reponse.REPONSE_INCONNUE;
-        //coloriserTimer(Color.BLACK);
         Question question = choisirQuestion();
         questionCourante = question;
         afficherQuestion(question);
@@ -147,10 +146,15 @@ public class JeuActivity extends Activity {
         TextView ageB = (TextView)findViewById(R.id.ageB);
         ageB.setText(String.valueOf(question.getPersonneB().getAge()));
 
+        // Si le joueur a donné la bonne réponse
         if (question.estLaBonneReponse(reponseDonnee)) {
             score++;
             TextView scoreView = (TextView)findViewById(R.id.score);
             scoreView.setText(String.valueOf(score));
+        }
+        // Si le joueur a donné la mauvaise réponse
+        else {
+            resetScore();
         }
 
         if (question.getBonneReponse() == Question.Reponse.REPONSE_A) {
@@ -257,7 +261,6 @@ public class JeuActivity extends Activity {
                         tempsAffichageQuestion = TEMPS_AFFICHAGE_QUESTION_MAX;
                         etat = Etat.AFFICHER_REPONSE;
                         coloriserTimer(getResources().getColor(R.color.mauvais));
-                        resetScore();
                         afficherReponse();
                     }
 
