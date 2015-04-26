@@ -66,6 +66,18 @@ public class JeuActivity extends Activity {
         listePersonnes.add(new Personne("j", "Tom Selleck", "29/01/1945"));
         listePersonnes.add(new Personne("k", "Bill O'Reilly", "10/09/1949"));
         listePersonnes.add(new Personne("l", "David Letterman", "12/04/1947"));
+        listePersonnes.add(new Personne("m", "Oprah Winfrey", "29/01/1954"));
+        listePersonnes.add(new Personne("n", "Tom Hanks", "09/07/1956"));
+        listePersonnes.add(new Personne("o", "Dustin Hoffman", "08/08/1937"));
+        listePersonnes.add(new Personne("p", "Jack Nicholson", "22/04/1937"));
+        listePersonnes.add(new Personne("q", "Robert De Niro", "17/08/1943"));
+        listePersonnes.add(new Personne("r", "Anthony Hopkins", "31/12/1937"));
+        listePersonnes.add(new Personne("s", "Al Pacino", "25/04/1940"));
+        listePersonnes.add(new Personne("t", "Clint Eastwood", "31/05/1930"));
+        listePersonnes.add(new Personne("u", "Morgan Freeman", "01/06/1937"));
+        listePersonnes.add(new Personne("v", "Denzel Washington", "28/12/1954"));
+        listePersonnes.add(new Personne("w", "Russell Crowe", "07/04/1964"));
+        listePersonnes.add(new Personne("x", "Sean Penn", "17/08/1960"));
 
         chargerMeilleurScore();
         afficherQuestion();
