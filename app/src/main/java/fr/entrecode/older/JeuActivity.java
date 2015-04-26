@@ -102,6 +102,10 @@ public class JeuActivity extends Activity {
         listePersonnes.add(new Personne("at", "Avril Lavigne", "27/09/1984"));
         listePersonnes.add(new Personne("au", "Rihanna", "20/02/1988"));
         listePersonnes.add(new Personne("av", "Pink", "08/09/1979"));
+        listePersonnes.add(new Personne("aw", "Britney Spears", "02/12/1981"));
+        listePersonnes.add(new Personne("ax", "Shania Twain", "28/08/1965"));
+        listePersonnes.add(new Personne("ay", "Shakira", "02/02/1977"));
+        listePersonnes.add(new Personne("az", "Tina Turner", "26/10/1939"));
 
         chargerMeilleurScore();
         afficherQuestion();
