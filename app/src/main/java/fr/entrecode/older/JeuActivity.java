@@ -4,15 +4,14 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -41,6 +40,13 @@ public class JeuActivity extends Activity {
 
     private Timer horloge = new Timer();
     final Handler handlerHorloge = new Handler();
+
+    // Nombre des questions potentielles calculées
+    private final int NOMBRE_QUESTIONS_CANDIDATES = 3;
+
+    // Profondeur de l'historique des Personnes affichées
+    private final int PROFONDEUR_HISTORIQUE = 10;
+    private LinkedList<Personne> historiquePersonnesAffichees;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -145,6 +151,9 @@ public class JeuActivity extends Activity {
         listePersonnes.add(new Personne("ck", "Keanu Reeves", "02/09/1964"));
         listePersonnes.add(new Personne("cl", "Jackie Chan", "07/04/1954"));
 
+        // Initialisation de l'historique
+        historiquePersonnesAffichees = new LinkedList<>();
+
         chargerMeilleurScore();
         afficherQuestion();
 
@@ -169,14 +178,71 @@ public class JeuActivity extends Activity {
     private Question choisirQuestion() {
         int idA = 0;
         int idB = 0;
-        // Tirage au sort de la question
+        Question meilleureCandidate = null;
+
+        // Liste des questions candidates
+        List<Question> listeQuestionsCandidates = new ArrayList<>();
+
+        // Tirage au sort des questions candidates
         do {
             idA = (int) Math.round(Math.random() * (listePersonnes.size() - 1));
             idB = (int) Math.round(Math.random() * (listePersonnes.size() - 1));
+            if (idA != idB) {
+                listeQuestionsCandidates.add(new Question(listePersonnes.get(idA), listePersonnes.get(idB)));
+            }
         }
-        while (idA == idB);
+        while (listeQuestionsCandidates.size() < NOMBRE_QUESTIONS_CANDIDATES);
 
-        return new Question(listePersonnes.get(idA), listePersonnes.get(idB));
+        // Détermination du meilleur candidat
+        int meilleureNote = 0;
+        for (Question candidate : listeQuestionsCandidates) {
+            if (meilleureCandidate == null) {
+                meilleureCandidate = candidate;
+                meilleureNote = evaluerQuestion(candidate);
+            }
+            else {
+                int noteCandidate = evaluerQuestion(candidate);
+                if (noteCandidate < meilleureNote) {
+                    meilleureCandidate = candidate;
+                    meilleureNote = noteCandidate;
+                }
+            }
+        }
+
+        // Mise à jour de l'historique
+        historiquePersonnesAffichees.addFirst(meilleureCandidate.getPersonneA());
+        historiquePersonnesAffichees.addFirst(meilleureCandidate.getPersonneB());
+        while (historiquePersonnesAffichees.size() > PROFONDEUR_HISTORIQUE) {
+            historiquePersonnesAffichees.removeLast();
+        }
+
+        return meilleureCandidate;
+    }
+
+    private int evaluerQuestion(Question question) {
+        int note = 0;
+
+        // Evaluation de la différence d'age
+        int noteAge = Math.abs(question.getPersonneA().getAge() - question.getPersonneB().getAge());
+
+        // Evaluation de la présence dans l'historique
+        int noteHistorique = notePosition(historiquePersonnesAffichees.indexOf(question.getPersonneA()))
+                           + notePosition(historiquePersonnesAffichees.indexOf(question.getPersonneB()));
+
+        note = noteAge + noteHistorique;
+
+        return note;
+    }
+
+    private int notePosition(int position) {
+        int note = 0;
+        if (position == -1) {
+            note = 0;
+        }
+        else {
+            note = PROFONDEUR_HISTORIQUE - ((9 * position) / PROFONDEUR_HISTORIQUE);
+        }
+        return note;
     }
 
     private void afficherQuestion(Question question) {
