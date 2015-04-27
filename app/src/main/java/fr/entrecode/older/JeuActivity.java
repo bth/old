@@ -132,6 +132,18 @@ public class JeuActivity extends Activity {
         listePersonnes.add(new Personne("bx", "Bono", "10/05/1960"));
         listePersonnes.add(new Personne("by", "Serj Tankian", "21/08/1967"));
         listePersonnes.add(new Personne("bz", "Adam Lambert", "29/01/1982"));
+        listePersonnes.add(new Personne("ca", "Matt Damon", "08/10/1970"));
+        listePersonnes.add(new Personne("cb", "Mark Wahlberg", "05/06/1971"));
+        listePersonnes.add(new Personne("cc", "George Clooney", "06/05/1961"));
+        listePersonnes.add(new Personne("cd", "Brad Pitt", "18/12/1963"));
+        listePersonnes.add(new Personne("ce", "Christian Bale", "30/01/1974"));
+        listePersonnes.add(new Personne("cf", "Leonardo DiCaprio", "11/11/1974"));
+        listePersonnes.add(new Personne("cg", "Samuel L. Jackson", "21/12/1948"));
+        listePersonnes.add(new Personne("ch", "Arnold Schwarzenegger", "30/07/1947"));
+        listePersonnes.add(new Personne("ci", "Sylvester Stallone", "06/07/1946"));
+        listePersonnes.add(new Personne("cj", "Jet Li", "26/04/1963"));
+        listePersonnes.add(new Personne("ck", "Keanu Reeves", "02/09/1964"));
+        listePersonnes.add(new Personne("cl", "Jackie Chan", "07/04/1954"));
 
         chargerMeilleurScore();
         afficherQuestion();
