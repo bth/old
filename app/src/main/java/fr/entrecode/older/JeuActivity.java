@@ -254,7 +254,10 @@ public class JeuActivity extends Activity {
 
         // Affichage de la Personne A
         ImageView photoA = (ImageView)findViewById(R.id.photoA);
-        photoA.setImageDrawable(r.getDrawable(r.getIdentifier(question.getPersonneA().getId(), "drawable", "fr.entrecode.older")));
+        Drawable drawableA = r.getDrawable(r.getIdentifier(question.getPersonneA().getId(), "drawable", "fr.entrecode.older"));
+        Bitmap bitmapA = ((BitmapDrawable)drawableA).getBitmap();
+        Bitmap bitmapModifieA = inverserCouleurs(bitmapA);
+        photoA.setImageBitmap(bitmapModifieA);
 
         TextView nomA = (TextView)findViewById(R.id.nomA);
         nomA.setText(question.getPersonneA().getNom());
