@@ -4,6 +4,10 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.Color;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -260,7 +264,10 @@ public class JeuActivity extends Activity {
 
         // Affichage de la Personne B
         ImageView photoB = (ImageView)findViewById(R.id.photoB);
-        photoB.setImageDrawable(r.getDrawable(r.getIdentifier(question.getPersonneB().getId(), "drawable", "fr.entrecode.older")));
+        Drawable drawableB = r.getDrawable(r.getIdentifier(question.getPersonneB().getId(), "drawable", "fr.entrecode.older"));
+        Bitmap bitmapB = ((BitmapDrawable)drawableB).getBitmap();
+        Bitmap bitmapModifieB = inverserCouleurs(bitmapB);
+        photoB.setImageBitmap(bitmapModifieB);
 
         TextView nomB = (TextView)findViewById(R.id.nomB);
         nomB.setText(question.getPersonneB().getNom());
@@ -271,6 +278,30 @@ public class JeuActivity extends Activity {
         initialiserCouleurs();
 
         reponseDonnee = Question.Reponse.REPONSE_INCONNUE;
+    }
+
+    public static Bitmap inverserCouleurs(Bitmap src) {
+        Bitmap bmOut = Bitmap.createBitmap(src.getWidth(), src.getHeight(), src.getConfig());
+
+        int A, R, G, B;
+        int pixelColor;
+        int height = src.getHeight();
+        int width = src.getWidth();
+
+        for (int y = 0; y < height; y++)
+        {
+            for (int x = 0; x < width; x++)
+            {
+                pixelColor = src.getPixel(x, y);
+                A = Color.alpha(pixelColor);
+                R = 255 - Color.red(pixelColor);
+                G = 255 - Color.green(pixelColor);
+                B = 255 - Color.blue(pixelColor);
+                bmOut.setPixel(x, y, Color.argb(A, R, G, B));
+            }
+        }
+
+        return bmOut;
     }
 
     private void initialiserCouleurs() {
