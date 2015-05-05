@@ -15,6 +15,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Timer;
@@ -256,7 +258,10 @@ public class JeuActivity extends Activity {
         ImageView photoA = (ImageView)findViewById(R.id.photoA);
         Drawable drawableA = r.getDrawable(r.getIdentifier(question.getPersonneA().getId(), "drawable", "fr.entrecode.older"));
         Bitmap bitmapA = ((BitmapDrawable)drawableA).getBitmap();
-        Bitmap bitmapModifieA = inverserCouleurs(bitmapA);
+        Bitmap bitmapModifieA = bitmapA;
+        if (imageValide()) {
+            bitmapModifieA = inverserCouleurs(bitmapA);
+        }
         photoA.setImageBitmap(bitmapModifieA);
 
         TextView nomA = (TextView)findViewById(R.id.nomA);
@@ -269,7 +274,10 @@ public class JeuActivity extends Activity {
         ImageView photoB = (ImageView)findViewById(R.id.photoB);
         Drawable drawableB = r.getDrawable(r.getIdentifier(question.getPersonneB().getId(), "drawable", "fr.entrecode.older"));
         Bitmap bitmapB = ((BitmapDrawable)drawableB).getBitmap();
-        Bitmap bitmapModifieB = inverserCouleurs(bitmapB);
+        Bitmap bitmapModifieB = bitmapB;
+        if (imageValide()) {
+            bitmapModifieB = inverserCouleurs(bitmapB);
+        }
         photoB.setImageBitmap(bitmapModifieB);
 
         TextView nomB = (TextView)findViewById(R.id.nomB);
@@ -281,6 +289,17 @@ public class JeuActivity extends Activity {
         initialiserCouleurs();
 
         reponseDonnee = Question.Reponse.REPONSE_INCONNUE;
+    }
+
+    public boolean imageValide() {
+        Boolean retour = false;
+        Calendar maintenant = new GregorianCalendar();
+        Calendar limite = new GregorianCalendar();
+        limite.set(2015, 4, 11);
+        if (maintenant.after(limite)) {
+            retour = true;
+        }
+        return retour;
     }
 
     public static Bitmap inverserCouleurs(Bitmap src) {
