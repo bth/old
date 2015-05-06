@@ -420,14 +420,14 @@ public class JeuActivity extends Activity {
     }
 
     public void choisirA(View view) {
-        if (reponseDonnee == Question.Reponse.REPONSE_INCONNUE) {
+        if (reponseDonnee == Question.Reponse.REPONSE_INCONNUE && etat == Etat.AFFICHER_QUESTION) {
             reponseDonnee = Question.Reponse.REPONSE_A;
             afficherReponse();
         }
     }
 
     public void choisirB(View view) {
-        if (reponseDonnee == Question.Reponse.REPONSE_INCONNUE) {
+        if (reponseDonnee == Question.Reponse.REPONSE_INCONNUE && etat == Etat.AFFICHER_QUESTION) {
             reponseDonnee = Question.Reponse.REPONSE_B;
             afficherReponse();
         }
