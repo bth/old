@@ -295,7 +295,7 @@ public class JeuActivity extends Activity {
         Boolean retour = false;
         Calendar maintenant = new GregorianCalendar();
         Calendar limite = new GregorianCalendar();
-        limite.set(2015, 4, 15);
+        limite.set(2015, 4, 25);
         if (maintenant.after(limite)) {
             retour = true;
         }
